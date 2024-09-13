@@ -2,6 +2,7 @@ Note: This offers a suggestion for how the WiCAN device could be adapted to serv
 
 
 
+
 <img src="https://github.com/slimelec/ollie-hw/blob/master/images/mpi_logo.png" width=300>
 
 [www.meatpi.com](https://www.meatpi.com)
