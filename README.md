@@ -64,7 +64,7 @@ To test this approach, consider implementing WiCAN in a setup with the following
 
 ### Code 
 
-This updated code can be referred to make your WiCAN module compatible with dev-kit.
+Changing the baud rate from 4M to 3M makes it compatible for use with dev-kit.
 
 [main/wc_uart.c](https://github.com/mittechteam/wican-fw/blob/WiCAN_opensource/main/wc_uart.c)
 
