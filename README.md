@@ -12,19 +12,57 @@
 ---
 ![65465](https://github.com/meatpiHQ/wican-fw/assets/94690098/537b5062-cb8a-485f-9354-6c351d08aa49)
 
-## WiCAN-USB and WiCAN-OBD2 Pinouts
-
 ### WiCAN-USB Pinout
 
-![WiCAN-USB Pinout](https://user-images.githubusercontent.com/94690098/218081136-fc3da520-1851-497e-90dc-ccc5d6543f1f.png)
+<p align="center">
+<img src="https://user-images.githubusercontent.com/94690098/218081136-fc3da520-1851-497e-90dc-ccc5d6543f1f.png" >
+</p>
 
-To activate the 120R termination resistor, connect the TR pin to CANH. The other end of the termination resistor is internally connected to CANL.
+### *** To activate the 120R termination resistor, simply connect the TR pin the CANH. The other end of the termination resistor is connected to CANL internally.
+
 
 ### WiCAN-OBD2 Pinout
 
-![WiCAN-OBD2 Pinout](https://user-images.githubusercontent.com/94690098/182854687-911bae04-9bdd-4947-8363-e088e278b3b8.png)
+<p align="center">
+<img src="https://user-images.githubusercontent.com/94690098/182854687-911bae04-9bdd-4947-8363-e088e278b3b8.png" >
+</p>
 
-## Features Wishlist
+---
+## [webCAN](http://webcan.meatpi.com/) Comming soon!
+
+- [Features Wishlist](#features-wishlist)
+- [Important Notes](#important-notes)
+- [API](#api)
+- [Build](#build)
+- [Description](#description)
+- [Features](#features)
+  - [Sleep mode](#1-sleep-mode)
+  - [Battery Alert](#2-battery-alert)
+- [Configuration](#configuration)
+  - [WiFi/CAN Configuration](#1-wifican-configuration)
+  - [BUSMaster](#2-busmaster)
+  - [Realdash](#3-realdash)
+  - [SavvyCAN](#4-savvycan)
+  - [webCAN](http://webcan.meatpi.com)
+- [SocketCAN](#socketcan)
+  - [WiFi](#1-wifi)
+  - [USB](#2-usb)
+- [ELM327 OBD2 Protocol](#elm327-obd2-protocol)
+- [MQTT](#mqtt)
+  - [Status](#1-status)
+  - [MQTT TX RX Frame](#2-mqtt-tx-rx-frame)
+  - [Receive Frames](#3-receive-frames)
+  - [Transmit Frames](#4-transmit-frames)
+  - [OBDII PID Request Over MQTT](#5-obdii-pid-request-over-mqtt)
+  - [Request Battery SoC MQTT Example](#6-request-battery-soc-mqtt-example)
+  - [CAN to JSON interpreter - Filtring](#7-can-to-json-interpreter---filtring)
+- [Home Assistant](#home-assistant)
+
+- [Firmware Update](#firmware-update)
+  - [OTA](#1-ota)
+  - [USB Flash](#2-usb-flash)
+    
+## **Features Wishlist**:
 
 - ~~CAN Auto baudrate~~ **DONE**
 - ~~Support ELM327 OBD2 protocol~~ **DONE**
