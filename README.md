@@ -72,7 +72,7 @@ This updated code can be referred to make your WiCAN module compatible with dev-
 
 1. **Connect the Module to Your Laptop:**
    - Connect the setup module to your laptop.
-   - Connect your wican module to the 
+   - Connect your wican module to receive can data with the relevant device.
 
 2. **Configure the CAN Interface:**
    - Run the following commands in your terminal to configure the CAN interface and receive data:
