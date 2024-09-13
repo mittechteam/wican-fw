@@ -1,3 +1,5 @@
+This offers a suggestion for how the WiCAN device could be adapted to serve as a USB-to-CAN adapter, based on our use case. This approach might be a useful addition for broader use, should you find it valuable.
+
 <img src="https://github.com/slimelec/ollie-hw/blob/master/images/mpi_logo.png" width=300>
 
 [www.meatpi.com](https://www.meatpi.com)
@@ -62,25 +64,10 @@
   - [OTA](#1-ota)
   - [USB Flash](#2-usb-flash)
     
-## **Features Wishlist**:
 
-- ~~CAN Auto baudrate~~ **DONE**
-- ~~Support ELM327 OBD2 protocol~~ **DONE**
-- ~~Home Assistant Integrations~~ **DONE**
-- Extended ELM327 support
-- Simultaneous support for ELM327 and RealDash protocols over WiFi and BLE
-- Email alerts for battery issues
-- Expanded CAN parameter alerts from DBC files
-- Extra WiFi settings support
 
-## Important Notes
 
-- OBD2 adapter not designed to be powered by USB for long-term use.
-- BLE should be turned off if not in use to avoid performance issues.
-- Device configuration access point disabled when BLE is connected.
-- Use station IP in AP+Station mode for communication; use AP for configuration only.
-
-## API and Build
+# **API**
 
 - [API Documentation](https://drive.google.com/drive/folders/1qJelUAHGrn_YbNIP0Jk_KmNENG-hKbtl?usp=sharing)
 - [Programming Examples](https://github.com/meatpiHQ/programming_examples/tree/master/CAN)
@@ -93,15 +80,9 @@
 
 ## Description
 
-WiCAN, based on ESP32-C3, is a versatile CAN adapter for car hacking and CAN-bus development, available in OBD-II and USB-CAN formats. It uses Wi-Fi or BLE for interface with RealDash, allowing custom dashboards. It features a power-saving mode for low battery consumption and supports a range of vehicle-diagnostic APIs and libraries.
+WiCAN is a powerful ESP32-C3-based CAN adapter for car hacking and general CAN-bus development.
 
-### WiCAN-OBD
-
-![WiCAN-OBD](https://user-images.githubusercontent.com/94690098/231444160-08842087-55ad-4165-8291-b379da63aeeb.png)
-
-- Ideal for car enthusiasts wanting to modernize head-unit displays.
-- Supports RealDash for custom graphics interfaces.
-- Sends battery alerts when voltage drops below a set threshold.
+WiCAN is a simple, ready-to-use solution for CAN-bus development and hacking. It accelerates development by providing vehicle-diagnostic APIs and libraries in various languages and for various operating systems.
 
 # WiCAN-USB
 ![image](https://user-images.githubusercontent.com/94690098/231443956-fbf2de46-ef19-4ba5-83b1-6058ab123f56.png)
@@ -122,6 +103,7 @@ Integrating WiCAN into your setup is straightforward and economical, requiring j
 This updated code can be referred to make your WiCAN module compatible with dev-kit.
 
 [main/wc_uart.c](https://github.com/mittechteam/wican-fw/blob/WiCAN_opensource/main/wc_uart.c)
+
 ## Setup Guide
 
 Follow these steps to set up your Wi-CAN module:
