@@ -1,4 +1,6 @@
-This offers a suggestion for how the WiCAN device could be adapted to serve as a USB-to-CAN adapter, based on our use case. This approach might be a useful addition for broader use, should you find it valuable.
+Note: This PR offers a suggestion for how the WiCAN device could be adapted to serve as a USB-to-CAN adapter, based on our use case. This approach might be a useful addition for broader use, should you find it valuable.
+
+
 
 <img src="https://github.com/slimelec/ollie-hw/blob/master/images/mpi_logo.png" width=300>
 
@@ -29,44 +31,6 @@ This offers a suggestion for how the WiCAN device could be adapted to serve as a
 <img src="https://user-images.githubusercontent.com/94690098/182854687-911bae04-9bdd-4947-8363-e088e278b3b8.png" >
 </p>
 
----
-## [webCAN](http://webcan.meatpi.com/) Comming soon!
-
-- [Features Wishlist](#features-wishlist)
-- [Important Notes](#important-notes)
-- [API](#api)
-- [Build](#build)
-- [Description](#description)
-- [Features](#features)
-  - [Sleep mode](#1-sleep-mode)
-  - [Battery Alert](#2-battery-alert)
-- [Configuration](#configuration)
-  - [WiFi/CAN Configuration](#1-wifican-configuration)
-  - [BUSMaster](#2-busmaster)
-  - [Realdash](#3-realdash)
-  - [SavvyCAN](#4-savvycan)
-  - [webCAN](http://webcan.meatpi.com)
-- [SocketCAN](#socketcan)
-  - [WiFi](#1-wifi)
-  - [USB](#2-usb)
-- [ELM327 OBD2 Protocol](#elm327-obd2-protocol)
-- [MQTT](#mqtt)
-  - [Status](#1-status)
-  - [MQTT TX RX Frame](#2-mqtt-tx-rx-frame)
-  - [Receive Frames](#3-receive-frames)
-  - [Transmit Frames](#4-transmit-frames)
-  - [OBDII PID Request Over MQTT](#5-obdii-pid-request-over-mqtt)
-  - [Request Battery SoC MQTT Example](#6-request-battery-soc-mqtt-example)
-  - [CAN to JSON interpreter - Filtring](#7-can-to-json-interpreter---filtring)
-- [Home Assistant](#home-assistant)
-
-- [Firmware Update](#firmware-update)
-  - [OTA](#1-ota)
-  - [USB Flash](#2-usb-flash)
-    
-
-
-
 # **API**
 
 - [API Documentation](https://drive.google.com/drive/folders/1qJelUAHGrn_YbNIP0Jk_KmNENG-hKbtl?usp=sharing)
@@ -93,13 +57,13 @@ WiCAN-USB can also be used as a USB-to-CAN adapter when Wi-Fi connectivity is no
 
 # WiCAN-USB as a USB-to-CAN adapter
 
-Traditional USB-to-CAN connectors are often expensive and do not always offer optimal efficiency. In contrast, the ESP32-based WiCAN presents a readily available and cost-effective solution, making it an excellent choice for low-frequency CAN bus applications and providing great value for its cost.
+One potential enhancement for the WiCAN device could be its use as a cost-effective alternative to traditional USB-to-CAN connectors, particularly for low-frequency CAN bus applications. 
+While it may not suit all frequency ranges, it has shown promising results in scenarios with less demanding data rates and offers excellent value for its cost.
 
-Although WiCAN performs well for low-frequency data transmission, it may not be suitable for all frequency ranges. Nonetheless, it excels in many applications, particularly those with less demanding data rates.
+To test this approach, consider implementing WiCAN in a setup with the following changes:
 
-Integrating WiCAN into your setup is straightforward and economical, requiring just a couple of customised shields for your ESP-32 module. With minimal expense, you can significantly enhance your system's capabilities.
+### Code 
 
-## Code 
 This updated code can be referred to make your WiCAN module compatible with dev-kit.
 
 [main/wc_uart.c](https://github.com/mittechteam/wican-fw/blob/WiCAN_opensource/main/wc_uart.c)
