@@ -1,4 +1,4 @@
-Note: This PR offers a suggestion for how the WiCAN device could be adapted to serve as a USB-to-CAN adapter, based on our use case. This approach might be a useful addition for broader use, should you find it valuable.
+Note: This offers a suggestion for how the WiCAN device could be adapted to serve as a USB-to-CAN adapter, based on our use case. This approach might be a useful addition for broader use, should you find it valuable.
 
 
 
