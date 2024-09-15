@@ -1,3 +1,11 @@
+## Using WiCAN Firmware with ESP32-DevKitM-1
+Aim: The aim 
+The WiCAN Firmware is supported on its native hardware but can quite easily be ported to the readily available ESP32-DevKitM-1 with minor changes outlined below:
+- [changed fw to USB from ODB](https://github.com/mittechteam/wican-fw/commit/462d24fc51631157283d357ebf49e48354de8ea5)
+- [changed uart baud rate to 3M from 4M](https://github.com/mittechteam/wican-fw/commit/02a89c874bfc5ae2ab74d545405d14f804ed4b70)(needs to be done as the USB Bridge on the Development Kit has a maximum limit of 3MBPS)
+
+You will need to build the codebase with the new changes and flash your ESP32-DevKitM-1. Instructions to build and flash can be found at [Build](#build) and also [here](https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/tutorial/basic_use.md)
+
 <img src="https://github.com/slimelec/ollie-hw/blob/master/images/mpi_logo.png" width=300>
 
 [www.meatpi.com](https://www.meatpi.com)
