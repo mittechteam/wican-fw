@@ -141,6 +141,11 @@ This needs to be done as the USB Bridge on the Development Kit has a maximum lim
 2. Prebuild transceiver
 3. Jumpers for connections.
 
+- Building and Flashing the Code
+
+  Refer these instructions to build and flash the code:
+  -- [Build](#build) 
+  -- [Flash](https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/tutorial/basic_use.md)
 
 Run the following commands in your terminal to configure the CAN interface and receive data:
 
