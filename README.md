@@ -5,7 +5,7 @@ The WiCAN Firmware is supported on its native hardware but can quite easily be p
 - [changed uart baud rate to 3M from 4M](https://github.com/mittechteam/wican-fw/commit/02a89c874bfc5ae2ab74d545405d14f804ed4b70)
 
 For this,you will need to build the codebase with the new changes and flash your ESP32-DevKitM-1.
-References given [here](#WiCAN-USB as a USB-to-CAN adapter) can be used for this purpose.
+References given [here](#USB-to-CAN) can be used for this purpose.
 
 
 
@@ -120,7 +120,7 @@ WiCAN-USB can be powered through USB or through a screw-terminal connector. The 
 
 WiCAN-USB can also be used as a USB-to-CAN adapter when Wi-Fi connectivity is not available or when a hardwired connection is needed.
 
-# WiCAN-USB as a USB-to-CAN adapter
+# USB-to-CAN
 
 One potential enhancement for the WiCAN device could be its use as a cost-effective alternative to traditional USB-to-CAN connectors, particularly for low-frequency CAN bus applications. 
 While it may not suit all frequency ranges, it has shown promising results in scenarios with less demanding data rates and offers excellent value for its cost.
