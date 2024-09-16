@@ -5,6 +5,7 @@ The WiCAN Firmware is supported on its native hardware but can quite easily be p
 - [changed uart baud rate to 3M from 4M](https://github.com/mittechteam/wican-fw/commit/02a89c874bfc5ae2ab74d545405d14f804ed4b70)
 
 For this,you will need to build the codebase with the new changes and flash your ESP32-DevKitM-1.
+
 References given [here](#USB-to-CAN) can be used for this purpose.
 
 
@@ -129,6 +130,7 @@ This can be achieved by implementing-
 - Minor Code Changes:
 
 -- [Changed baud rate from 4M to 3M](https://github.com/mittechteam/wican-fw/commit/02a89c874bfc5ae2ab74d545405d14f804ed4b70)
+
 This needs to be done as the USB Bridge on the Development Kit has a maximum limit of 3MBPS so making these changes makes it compatible with the ESP32-DevKitM-1 module.
 
 
