@@ -128,10 +128,12 @@ This can be achieved by implementing-
 
 - Minor Code Changes:
 
-Changed baud rate from 4M to 3M. 
-You can refer the code changes [here](https://github.com/mittechteam/wican-fw/blob/WiCAN_opensource/main/wc_uart.c)
-
+-- [Changed baud rate from 4M to 3M](https://github.com/mittechteam/wican-fw/commit/02a89c874bfc5ae2ab74d545405d14f804ed4b70)
 This needs to be done as the USB Bridge on the Development Kit has a maximum limit of 3MBPS so making these changes makes it compatible with the ESP32-DevKitM-1 module.
+
+
+-- [Changed fw to USB from ODB](https://github.com/mittechteam/wican-fw/commit/462d24fc51631157283d357ebf49e48354de8ea5)
+
 
 - Hardware Requirements: 
 
