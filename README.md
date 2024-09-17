@@ -1,3 +1,15 @@
+# Using WiCAN Firmware with ESP32-DevKitM-1
+## Aim
+The WiCAN Firmware is supported on its native hardware but can quite easily be ported to the readily available ESP32-DevKitM-1 with minor changes outlined below:
+- [changed fw to USB from ODB](https://github.com/mittechteam/wican-fw/commit/462d24fc51631157283d357ebf49e48354de8ea5)
+- [changed uart baud rate to 3M from 4M](https://github.com/mittechteam/wican-fw/commit/02a89c874bfc5ae2ab74d545405d14f804ed4b70)
+
+For this,you will need to build the codebase with the new changes and flash your ESP32-DevKitM-1.
+
+References given [here](#USB-to-CAN) can be used for this purpose.
+
+
+
 <img src="https://github.com/slimelec/ollie-hw/blob/master/images/mpi_logo.png" width=300>
 
 [www.meatpi.com](https://www.meatpi.com)
@@ -99,9 +111,8 @@ WiCAN is a simple, ready-to-use solution for CAN-bus development and hacking. It
 # WiCAN-OBD
 ![image](https://user-images.githubusercontent.com/94690098/231444160-08842087-55ad-4165-8291-b379da63aeeb.png)
 
-WiCAN-OBD will be of great interest to car enthusiasts and tinkers who want to modernize or customize the head-unit displays in their cars using RealDash. Check out some examples of the available graphic interfaces, which are supported by a robust collection of Manuals & Tutorials to get you started with RealDash.
-
-Another great feature of WiCAN-OBD is its MQTT battery alerts. It can monitor your battery voltage and send an alert if that voltage drops under a set threshold. This feature is especially important for users who own multiple cars they do not use regularly.
+WiCAN-OBD will be of great interest to car enthusiasts and tinkers who want to modernize or customize the head-unit displays in their cars using RealDash. 
+Another great feature of WiCAN-OBD is its MQTT battery alerts. It can monitor your battery voltage and send an alert if that voltage drops under a set threshold. 
 
 # WiCAN-USB
 ![image](https://user-images.githubusercontent.com/94690098/231443956-fbf2de46-ef19-4ba5-83b1-6058ab123f56.png)
@@ -110,6 +121,44 @@ WiCAN-USB can be powered through USB or through a screw-terminal connector. The 
 
 WiCAN-USB can also be used as a USB-to-CAN adapter when Wi-Fi connectivity is not available or when a hardwired connection is needed.
 
+# USB-to-CAN
+
+One potential enhancement for the WiCAN device could be its use as a cost-effective alternative to traditional USB-to-CAN connectors, particularly for low-frequency CAN bus applications. 
+While it may not suit all frequency ranges, it has shown promising results in scenarios with less demanding data rates and offers excellent value for its cost.
+This can be achieved by implementing-
+
+- Minor Code Changes:
+
+-- [Changed baud rate from 4M to 3M](https://github.com/mittechteam/wican-fw/commit/02a89c874bfc5ae2ab74d545405d14f804ed4b70)
+
+This needs to be done as the USB Bridge on the Development Kit has a maximum limit of 3MBPS so making these changes makes it compatible with the ESP32-DevKitM-1 module.
+
+
+-- [Changed fw to USB from ODB](https://github.com/mittechteam/wican-fw/commit/462d24fc51631157283d357ebf49e48354de8ea5)
+
+
+- Hardware Requirements: 
+
+1. ESP32 module
+2. Prebuild transceiver
+3. Jumpers for connections.
+
+- Building and Flashing the Code
+
+  Refer these instructions to build and flash the code:
+  -- [Build](#build) 
+  -- [Flash](https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/tutorial/basic_use.md)
+
+Run the following commands in your terminal to configure the CAN interface and receive data:
+
+```bash
+     sudo slcand -o -s8 -t sw -S 3000000 /dev/ttyUSB0 can0
+     sudo ifconfig can0 txqueuelen 1000
+     sudo ifconfig can0 up
+     candump -c -ta -x can0
+```
+
+Note: This setup does not currently support the mentioned [features](#Features:). While it might be compatible with some of the [configurations](#Configuration:), the potential has not been fully explored for all the configurations.
 
 ## [**Programming Examples**](https://github.com/meatpiHQ/programming_examples/tree/master/CAN)
 
@@ -138,6 +187,8 @@ The threshold voltage is configurable and can be set in the configuration page, 
 This is an important feature for most car enthusiast who own multiple cars that are only driven few times a year.  Basically if a car is not used in few month the battery will go flat and needs to be jumped. WiCAN can be configured to send an alert when the battery voltage drops under a certain level. Sleep mode has to be enabled for this feature to be useful. **For now alerts can be sent on MQTT, more protocols are coming soon. If there is a specific protocol you want to be supported let me know.**
 
 ![image](https://user-images.githubusercontent.com/94690098/182034543-8025c5ab-5e38-43a0-9ec8-014d4301fcf0.png)
+
+
 
 # Configuration:
 --------
