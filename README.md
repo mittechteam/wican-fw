@@ -158,7 +158,6 @@ Run the following commands in your terminal to configure the CAN interface and r
      candump -c -ta -x can0
 ```
 
-Please note: This enhancement is applicable only to applications that require CAN data reception.
 ## [**Programming Examples**](https://github.com/meatpiHQ/programming_examples/tree/master/CAN)
 
 ### **Features and Specifications**:
