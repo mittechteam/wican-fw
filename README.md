@@ -1,5 +1,5 @@
-## Using WiCAN Firmware with ESP32-DevKitM-1
-### Aim
+# Using WiCAN Firmware with ESP32-DevKitM-1
+## Aim
 The WiCAN Firmware is supported on its native hardware but can quite easily be ported to the readily available ESP32-DevKitM-1 with minor changes outlined below:
 - [changed fw to USB from ODB](https://github.com/mittechteam/wican-fw/commit/462d24fc51631157283d357ebf49e48354de8ea5)
 - [changed uart baud rate to 3M from 4M](https://github.com/mittechteam/wican-fw/commit/02a89c874bfc5ae2ab74d545405d14f804ed4b70)
@@ -158,6 +158,7 @@ Run the following commands in your terminal to configure the CAN interface and r
      candump -c -ta -x can0
 ```
 
+Please note: This enhancement is applicable only to applications that require CAN data reception.
 ## [**Programming Examples**](https://github.com/meatpiHQ/programming_examples/tree/master/CAN)
 
 ### **Features and Specifications**:
