@@ -174,6 +174,21 @@ Note: This setup does not currently support the mentioned [features](#Features:)
 
 ![Modes](https://user-images.githubusercontent.com/94690098/222961571-bd137341-808a-4f0a-9528-789fe24d640e.png "Connection Mode")
 
+# Features:
+--------
+
+## 1. Sleep Mode:
+
+WiCAN can be permanently attached to the car without worrying about draining the battery. It monitors the battery voltage and can detect when the alternator is ON. When the engine is ON the battery continuously charging and the voltage will be about 13.5V(can vary with different car models). When the engine is OFF the battery voltage drops to about 12.8V(full battery) -  WiCAN can detect this drop, and if the voltage remains under the threshold for **3 min** it will go to sleep and the current consumption will drop below **1mA**. If the engine is turned ON it will immediately wake up and enable the WiFi/BLE. 
+The threshold voltage is configurable and can be set in the configuration page, the default value is 13V. 
+
+## 2. Battery Alert:
+
+This is an important feature for most car enthusiast who own multiple cars that are only driven few times a year.  Basically if a car is not used in few month the battery will go flat and needs to be jumped. WiCAN can be configured to send an alert when the battery voltage drops under a certain level. Sleep mode has to be enabled for this feature to be useful. **For now alerts can be sent on MQTT, more protocols are coming soon. If there is a specific protocol you want to be supported let me know.**
+
+![image](https://user-images.githubusercontent.com/94690098/182034543-8025c5ab-5e38-43a0-9ec8-014d4301fcf0.png)
+
+
 
 # Configuration:
 --------
@@ -192,6 +207,67 @@ Note: This setup does not currently support the mentioned [features](#Features:)
 
 ![Configuration page](https://github.com/meatpiHQ/WiCAN/blob/main/images/settings40.png?raw=true "Config page")
 
+## 2. BUSMaster
+You need to download the right version of BUSMaster provided in this [**Link**](https://drive.google.com/drive/folders/1qJelUAHGrn_YbNIP0Jk_KmNENG-hKbtl?usp=sharing). Here is how to setup the hardware. 
+
+### **Device Configuration:**
+
+1. Go to configuration webpage.
+2. Baudrate can be set in BUSMaster configuration
+3. Set "Port Type" = TCP
+4. Set "Protocol" = slcan
+5. Click submit changes.
+
+### **BUSMaster Configuration:**
+
+1. Select VSCom CAN-API by clicking on 'Driver Selection -> VSCom CAN-API"
+2. Then Click on 'Channel Configuration -> Advanced' 
+3. Fill in the IP and port. **Example: 192.168.80.1:3333**
+4. Check the 'Hardware Timestamps' check box.
+5. Choose the Baudrate.
+6. Click 'OK', then Click the Connect button on the top left corner.
+  
+
+<img src="https://user-images.githubusercontent.com/94690098/158798541-0317aa4f-ebf5-4e57-83b0-ea3fefeaf4e9.png" width="350" height="500" >
+
+## 3. RealDash
+WiCAN can connect with RealDash using WiFi or BLE. The Protocol and CAN bitrate must be set using the configuration page. BLE is only support on Android and IOS. Windows 10 only supports WiFi connection.
+
+## **WiFi Device Configuration:**
+
+1. Go to configuration webpage.
+2. Select the baudrate
+3. Set "Port Type" = TCP
+4. Set "Protocol" = reladash 66
+5. Click submit changes.
+
+## **RealDash Configuration**
+1. Go to garage then click on the dashboard.
+2. Click Add connection.
+3. Select Adapter (CAN/LIN)
+4. Select RealDash CAN
+5. Select WIFI/LAN
+6. Enter IP and Port
+7. Click Done
+
+## **BLE Device Configuration:**
+
+**If you're using firmware verion v1.64 or below please update to the [latest version](https://github.com/meatpiHQ/wican-fw/releases/) before enabling BLE**
+
+1. Go to configuration webpage.
+2. Select the baudrate
+3. Set the "BLE Status" to enable
+
+**Note: When the BLE is connected, the device will automatically turn off the WiFi configuration access point. Once BLE is disconnected the configuration access point will turn back on.**  
+
+## 4. SavvyCAN
+
+1. Download [SavvyCAN](https://www.savvycan.com/)
+2. Connect to the device AP.
+3. Open SavvyCAN and Click Connection->Open Connection Window->Add New Device
+4. Select "Network Connection", if you're on the same network it auto detect the IP.
+5. Click Create New Connection.
+6. Then select "Enable Bus" checkbox.
 
 # SocketCAN
 
